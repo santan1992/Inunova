@@ -1,0 +1,954 @@
+Q1. Why do we call Python as a general purpose and high-level programming language?
+Ans.Python is called a general-purpose and high-level programming language because it is versatile and can be used for a wide range of applications,
+    and it abstracts low-level details, making it easy to read and write, suitable for various tasks, and accessible to developers of different backgrounds.
+Q2. Why is Python called a dynamically typed language?
+Ans.Python is called a dynamically typed language because it determines variable types at runtime, 
+    allowing for flexibility without requiring explicit type declarations.
+    x = 5      # x is an integer
+    x = "John" # x is now a string
+Q3. List some pros and cons of Python programming language?
+Ans.Pros:
+    1. Readability and ease of learning.
+    2. Versatile and suitable for various applications.
+    3. Large standard library and active community.
+    4. Cross-platform compatibility.
+    5. Productivity and rapid development.
+    Cons:
+    1. Slower performance compared to compiled languages.
+    2. Global Interpreter Lock (GIL) limitation.
+    3. Limited for mobile app development.
+    4. Less suitable for low-level system programming.
+    5. Dynamic typing can lead to runtime errors.
+Q4. In what all domains can we use Python?
+Ans.Python can be used in domains such as 
+    web development, data analysis, 
+    machine learning, scientific computing, 
+    game development, desktop applications, 
+    automation, IoT, blockchain, robotics, web scraping,
+    NLP, bioinformatics, finance, education, and more.
+Q5. What are variable and how can we declare them?
+Ans.A variable in programming is a symbolic name for storing data. 
+    In Python, you declare a variable by assigning a name to a value, 
+    and its data type is determined automatically based on the assigned value.
+    name = "John"  # A string variable
+    age = 30       # An integer variable
+    price = 19.99  # A floating-point variable
+    is_student = True  # A boolean variable
+Q6. How can we take an input from the user in Python?
+Ans.To take user input in Python, use the `input()` function, like this:
+    user_input = input("Prompt message: ")
+    The user's input is collected as a string and can be stored in a variable.
+Q7. What is the default datatype of the value that has been taken as an input using input() function?
+Ans.The input() function in Python always returns the user's input as a string by default. 
+    Regardless of what the user enters (numbers, text, or special characters), it's treated as a string data type. 
+    If you need to work with numerical values, you should explicitly convert the input to the appropriate 
+    data type (e.g., int or float) using type conversion functions like `int()` or `float()`.
+Q8. What is type casting?
+Ans.Type casting, or type conversion, is the process of changing 
+    the data type of a value in a programming language to make it compatible with specific operations or requirements.
+Q9. Can we take more than one input from the user using single input() function? If yes, how? If no, why?
+Ans.Yes, you can take multiple inputs from the user using a single 
+   `input()` function by having them separated by a delimiter (e.g., space) and then splitting the input string to access individual values.
+    # Taking multiple inputs separated by spaces
+    user_input = input("Enter multiple values separated by spaces: ")
+    values = user_input.split()
+    # Processing the values
+    for value in values:
+    print("You entered:", value)
+Q10.What are keywords?
+Ans.Keywords, or reserved words, are special words in a programming language with predefined meanings. 
+    They cannot be used for naming variables, functions, or other identifiers and play a crucial role in defining program structure and logic.
+    for example, keywords include words like if, else, for, while, def, class, import, and many others.
+Q11. Can we use keywords as a variable? Support your answer with reason.
+Ans.No, you cannot use keywords as variables in a programming language. For example, 
+    in Python, using a keyword like `if` as a variable name is not allowed and will result in a syntax error. 
+    Keywords have predefined meanings and are reserved for specific purposes within the language.
+Q12.What is indentation? What's the use of indentaion in Python?
+Ans.Python is the use of spaces or tabs at the beginning of a line to indicate the level of nesting within a block of code.
+    It is crucial for defining code structure, readability, and scope in Python.
+    if x > 5:
+    # This block is indented
+    print("x is greater than 5")
+    else:
+    # This block is also indented
+    print("x is not greater than 5")
+Q13.How can we throw some output in Python?
+Ans.In Python, you can produce output using the `print()` function. It takes one or more arguments and displays them as output on the screen.
+    # Display a string
+    print("Hello, World!")
+    # Display a variable's value
+    name = "Alice"
+    print("Hello, " + name)
+    # Display multiple values
+    x = 5
+    y = 10
+    print("The sum of", x, "and", y, "is", x + y)
+    # Display the result of an expression
+    result = 3 * 7
+    print("The result is:", result)
+Q14. What are operators in Python?
+Ans.**Operators** in Python are symbols or keywords that perform operations on data. For example:
+
+- **Arithmetic Operators**: Perform mathematical operations like addition, subtraction, etc.
+  ```python
+  x = 5 + 3  # Adds 5 and 3, result is 8
+  ```
+
+- **Comparison Operators**: Compare values and return True or False.
+  ```python
+  is_equal = (x == 8)  # Compares x to 8, result is True
+  ```
+
+- **Logical Operators**: Combine or modify conditions.
+  ```python
+  is_true = True
+  is_false = not is_true  # Negates is_true, result is False
+  ```
+
+- **Assignment Operators**: Assign values to variables.
+  ```python
+  y = 10
+  y += 5  # Adds 5 to y, result is 15
+  ```
+
+- **Membership Operators**: Test if a value is in a sequence.
+  ```python
+  fruits = ['apple', 'banana', 'cherry']
+  has_apple = 'apple' in fruits  # Checks if 'apple' is in fruits, result is True
+  ```
+
+- **Identity Operators**: Compare the memory addresses of objects.
+  ```python
+  a = [1, 2, 3]
+  b = a
+  are_same = (a is b)  # Checks if a and b reference the same object, result is True
+  ```
+
+Operators are fundamental for performing various tasks in Python, from basic arithmetic to complex logic and data manipulation.
+Q15.What is difference between / and // operators?
+Ans.The `/` and `//` operators in Python are both used for division, but they behave differently:
+
+1. **`/` (Division Operator):** This operator performs standard division and returns a floating-point result. It gives you the exact quotient, including any decimal places.
+
+   ```python
+   result = 7 / 2  # Result is 3.5
+   ```
+
+   In this example, `7` divided by `2` results in `3.5`, which is a floating-point number.
+
+2. **`//` (Floor Division Operator):** This operator performs floor division and returns an integer result. It gives you the quotient as an integer, discarding any decimal places.
+
+   ```python
+   result = 7 // 2  # Result is 3
+   ```
+
+   In this example, `7` floor divided by `2` results in `3`, which is an integer.
+
+So, the key difference is that `/` gives you a floating-point result, while `//` gives you an integer result by performing floor division. 
+    Depending on your needs, you can choose the appropriate division operator to get the desired result type.
+
+Q16. Write a code that gives following as an output.
+```
+iNeuroniNeuroniNeuroniNeuron
+Ans. output = "iNeuron" * 4
+     print(output)
+     iNeuroniNeuroniNeuroniNeuron
+Q17. Write a code to take a number as an input from the user and check if the number is odd or even.
+Ans.# Take a number as input from the user
+    user_input = input("Enter a number: ")
+    # Convert the input to an integer
+    number = int(user_input)
+    # Check if the number is odd or even
+    if number % 2 == 0:
+    print(number, "is even.")
+    else:
+    print(number, "is odd.")
+Q18.What are boolean operator?
+Ans.Boolean operators, also known as logical operators, are special operators in programming that work with boolean values (True or False). 
+    They include `and`, `or`, and `not`, and are used to perform logical operations like combining conditions or negating them.
+    result = True and True  # Result is True
+    result = True or False  # Result is True
+    result = not True  # Result is False
+Q19.What will the output of the following?
+    1 or 0
+
+    0 and 0
+
+    True and False and True
+
+    1 or 0 or 0
+Ans.Let's evaluate each of the given expressions:
+
+1. `1 or 0`: This is an example of the `or` operator. It returns the first `True` value it encounters or the last value if none are `True`. In this case, `1` is `True`, so the result is `1`.
+
+2. `0 and 0`: This is an example of the `and` operator. It returns the first `False` value it encounters or the last value if none are `False`. In this case, both values are `False`, so the result is `0`.
+
+3. `True and False and True`: This is a combination of `and` operators. It evaluates from left to right and returns the first `False` value it encounters or the last value if all are `True`. In this case, the first `False` encountered is `False`, so the result is `False`.
+
+4. `1 or 0 or 0`: This is a combination of `or` operators. It evaluates from left to right and returns the first `True` value it encounters or the last value if none are `True`. In this case, the first `True` encountered is `1`, so the result is `1`.
+
+So, the results are as follows:
+1. `1`
+2. `0`
+3. `False`
+4. `1`
+Q20. What are conditional statements in Python?
+Q21. What is use of 'if', 'elif' and 'else' keywords?
+Ans.**Conditional statements** in Python are used to execute specific blocks of code based on certain conditions. Here are examples of conditional statements:
+
+1. **`if` Statement:**
+   ```python
+   age = 20
+   if age >= 18:
+       print("You are an adult.")
+   ```
+
+2. **`if-else` Statement:**
+   ```python
+   temperature = 25
+   if temperature > 30:
+       print("It's hot outside.")
+   else:
+       print("It's not too hot.")
+   ```
+
+3. **`if-elif-else` Statement:**
+   ```python
+   score = 75
+   if score >= 90:
+       print("You got an A.")
+   elif score >= 80:
+       print("You got a B.")
+   else:
+       print("You got a C or lower.")
+   ```
+
+4. **`while` Loop with Conditional:**
+   ```python
+   count = 0
+   while count < 5:
+       print("Count:", count)
+       count += 1
+   ```
+
+5. **`for` Loop with Conditional:**
+   ```python
+   fruits = ['apple', 'banana', 'cherry']
+   for fruit in fruits:
+       if fruit == 'banana':
+           print("I found a banana!")
+   ```
+
+These conditional statements allow you to create flexible programs that respond to different situations or input values.
+Q22.Write a code to take the age of person as an input and if age >= 18 display "I can vote". If age is < 18 display "I can't vote".
+Ans.# Take the age as input from the user
+    age = int(input("Enter your age: "))
+    # Check if the age is greater than or equal to 18
+    if age >= 18:
+    print("I can vote.")
+    else:
+    print("I can't vote.")
+Q23. Write a code that displays the sum of all the even numbers from the given list.
+```
+numbers = [12, 75, 150, 180, 145, 525, 50]
+Ans.numbers = [12, 75, 150, 180, 145, 525, 50]
+    # Initialize a variable to store the sum
+    even_sum = 0
+    # Iterate through the list
+    for number in numbers:
+    # Check if the number is even
+    if number % 2 == 0:
+        even_sum += number
+    # Display the sum of even numbers
+    print("Sum of even numbers:", even_sum)
+Q24. Write a code to take 3 numbers as an input from the user and display the greatest no as output.
+Ans.# Take three numbers as input from the user
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    num3 = float(input("Enter the third number: "))
+
+    # Compare the numbers to find the greatest one
+    if num1 >= num2 and num1 >= num3:
+    greatest = num1
+    elif num2 >= num1 and num2 >= num3:
+    greatest = num2
+    else:
+    greatest = num3
+
+    # Display the greatest number
+    print("The greatest number is:", greatest)
+Q25. Write a program to display only those numbers from a list that satisfy the following conditions
+
+   - The number must be divisible by five
+
+   - If the number is greater than 150, then skip it and move to the next number
+
+   If the number is greater than 500, then stop the loop
+   ```
+   numbers = [12, 75, 150, 180, 145, 525, 50]
+Ans.numbers = [12, 75, 150, 180, 145, 525, 50]
+
+   # Iterate through the list
+   for number in numbers:
+    # Check if the number is divisible by 5
+    if number % 5 == 0:
+        # Check if the number is greater than 150
+        if number > 150:
+            # Skip numbers greater than 150
+            continue
+        
+        # Check if the number is greater than 500
+        if number > 500:
+            # Stop the loop if the number is greater than 500
+            break
+        
+        # Display the number
+        print(number)
+
+
+Q26.What is a string? How can we declare string in Python?
+Ans.In Python, a string is a sequence of characters, such as 
+    letters, numbers, symbols, or spaces, enclosed within single (' '), double (" "), or triple (''' ''' or """ """) quotation marks. 
+    Strings are used to represent text and are one of the fundamental data types in Python.
+    my_string = 'This is a string.'
+Q27.How can we access the string using its index?
+Ans.Positive Indexing: In Python, strings are zero-indexed,
+    which means the first character has an index of 0, the second character has an index of 1, and so on.
+    To access a character at a specific index, you simply use square brackets [] with the index value.
+    first_character = my_string[0]  # Access the first character, which is 'P'
+    second_character = my_string[1] # Access the second character, which is 'y'
+    
+    Negative Indexing: Python also allows negative indexing,
+    where -1 refers to the last character, -2 to the second-to-last character, and so forth.
+    last_character = my_string[-1]  # Access the last character, which is 'n'
+    second_to_last = my_string[-2]  # Access the second-to-last character, which is 'o'
+
+    Slicing: You can also access a range of characters, creating substrings, by using slicing.
+    Slicing is done with a colon : between two indices. The first index is inclusive, and the second index is exclusive.
+    my_string = "Python"
+    substring = my_string[1:4]  # Access characters from index 1 to 3, which is 'yth'
+Q28.Write a code to get the desired output of the following
+    string = "Big Data iNeuron"
+    desired_output = "iNeuron"
+Ans.string = "Big Data iNeuron"
+    desired_output = string[-7:]  # Using negative indexing to get the last 7 characters
+    print(desired_output)
+    Output-iNeuron
+    string = "Big Data iNeuron"
+    desired_output = string[9:]  # Start from index 9 to the end of the string
+    print(desired_output)
+    Output-iNeuron
+Q29.Write a code to get the desired output of the following?
+Q30.Resverse the string given in the above question.
+    string = "Big Data iNeuron"
+    desired_output = "norueNi"
+Ans.string = "Big Data iNeuron"
+    desired_output = string[-1:-8:-1]  # Slice with a step of -1 to reverse the string and select the last 7 characters
+    print(desired_output)
+Q31.How can you delete entire string at once?
+Ans.my_string = "Delete me"
+    my_string = None  # Remove the reference to the string
+Q32.What is escape sequence?
+Ans.An escape sequence in Python is a combination of characters starting with a backslash (`\`) that represents special characters within a string.
+    Example:python
+    my_string = "This is a newline\nHere's a tab:\tand a backslash: \\"
+    In this example, `\n` represents a newline, `\t` represents a tab, and `\\` represents a literal backslash within the string.
+Q33.How can you print the below string?
+   'iNeuron's Big Data Course'
+Ans.print("iNeuron's Big Data Course")
+Q34.What is a list in Python?
+Q35.How can you create a list in Python?
+Ans.A list in Python is an ordered collection of elements enclosed in square brackets `[]`. Lists can hold various data types, and you can modify their contents.
+    Example:
+    python
+    my_list = [1, 'apple', 3.14, True]
+    In this example, `my_list` is a Python list containing elements of different data types: an integer, a string, a float, and a boolean.
+    my_list = [element1, element2, element3, ...]
+Q36.How can we access the elements in a list?
+Ans.You can access elements in a Python list by using square brackets `[]` with the index of the element you want to retrieve. Here's a short example:
+    python
+    my_list = [10, 20, 30, 40, 50]
+    element = my_list[2]  # Access the third element (index 2), which is 30
+    In this example, `my_list[2]` retrieves the third element (30) from the list `my_list`.
+Q37.Write a code to access the word "iNeuron" from the given list.
+    lst = [1,2,3,"Hi",[45,54, "iNeuron"], "Big Data"]
+Ans.lst = [1, 2, 3, "Hi", [45, 54, "iNeuron"], "Big Data"]
+    # Access the nested list using indexing (index 4)
+    nested_list = lst[4]
+    # Access the word "iNeuron" within the nested list using indexing (index 2)
+    word_iNeuron = nested_list[2]
+    print(word_iNeuron)
+Q38.Take a list as an input from the user and find the length of the list.
+Ans.Here's a short Python code to take a list as input from the user and find its length:
+    python
+    user_input = input("Enter a list of values separated by spaces: ")
+    user_list = user_input.split()  # Split the input into a list
+    list_length = len(user_list)    # Calculate the length of the list
+    print("The length of the list is:", list_length)
+Q39.Add the word "Big" in the 3rd index of the given list.
+    lst = ["Welcome", "to", "Data", "course"]
+Ans.You can add the word "Big" at the 3rd index of the given list using the `insert()` method like this:
+    python
+    lst = ["Welcome", "to", "Data", "course"]
+    lst.insert(2, "Big")
+    print(lst)
+    Output:
+    ['Welcome', 'to', 'Big', 'Data', 'course']
+Q40.What is a tuple? How is it different from list?
+Ans.A tuple in Python is an ordered, immutable collection of elements defined using parentheses `()`. Here's how it differs from a list:
+    Immutability:
+    List (Mutable):
+    python
+    my_list = [1, 2, 3]
+    my_list[0] = 0  # Modifying elements is allowed
+    my_list.append(4)  # Adding elements is allowed
+    Tuple (Immutable):
+    python
+    my_tuple = (1, 2, 3)
+    # my_tuple[0] = 0  # Modifying elements raises an error
+    # my_tuple.append(4)  # Adding elements raises an error
+    Tuples are commonly used for data that should not change, like coordinates `(x, y)` or dictionary keys. 
+    Lists are used when you need a dynamic collection that can be modified.
+Q41.How can you create a tuple in Python?
+Ans.You can create a tuple in Python using parentheses `()` and by separating elements with commas. Here's an example:
+    python
+    my_tuple = (1, 2, "apple", 3.14)
+    This code creates a tuple named `my_tuple` with four elements: an integer, another integer, a string, and a floating-point number. 
+    Tuples are immutable, meaning their elements cannot be changed after creation.
+Q42.Create a tuple and try to add your name in the tuple. Are you able to do it? Support your answer with reason.
+Ans.In Python, tuples are immutable, which means you cannot change their content once they are created. 
+    You cannot add, remove, or modify elements in a tuple. If you attempt to do so, you will get a `TypeError`. 
+    Let's try adding a name to a tuple to demonstrate this:
+    python
+    my_tuple = (1, 2, 3)
+    my_tuple[0] = "John"  # This will result in a TypeError
+    Running this code will produce an error like this:
+    TypeError: 'tuple' object does not support item assignment
+    So, attempting to add your name or any other value to an existing tuple is not allowed.
+    If you need a collection that supports adding and removing elements, you should use a list instead of a tuple.
+    Lists are mutable, which means you can modify their content after creation.
+Q43. Can two tuple be appended. If yes, write a code for it. If not, why?
+Ans.In Python, tuples are immutable, which means you cannot change their content after they are created. Therefore, you cannot directly append one tuple to another like you can with lists.
+    However, you can create a new tuple by concatenating two or more existing tuples. Here's an example of how you can do this:
+    python
+    tuple1 = (1, 2, 3)
+    tuple2 = (4, 5, 6)
+    # Concatenate two tuples to create a new tuple
+    combined_tuple = tuple1 + tuple2
+    print(combined_tuple)
+    In this code, `tuple1` and `tuple2` are combined using the `+` operator to create a new tuple `combined_tuple` containing the elements from both `tuple1` and `tuple2`.
+    This is not appending in the traditional sense, but it creates a new tuple with the desired elements.So, while you cannot directly append one tuple to another,
+    you can create a new tuple by concatenating existing tuples.
+Q44.Take a tuple as an input and print the count of elements in it.
+Ans.Input: Take a tuple from the user as a comma-separated string
+    tuple_str = input("Enter a tuple as a comma-separated string: ")
+    Convert the input string into a tuple
+    try:
+    user_tuple = tuple(tuple_str.split(","))
+    Calculate and print the count of elements
+    count = len(user_tuple)
+    print("Count of elements in the tuple:", count)
+    except ValueError:
+    print("Invalid input. Please enter a valid comma-separated tuple.")
+Q45.What are sets in Python?
+Ans.A set in Python is an unordered collection of unique elements. Example
+    my_set = {1, 2, 3, 4, 5}
+    Key points:
+    Sets do not allow duplicate values.
+    Elements in a set are unordered.
+    Sets are defined using curly braces `{}` or the `set()` constructor.
+Q46.How can you create a set?
+Ans.We can create a set in Python using curly braces `{}` or the `set()` constructor. Here are examples:
+    Using curly braces:
+    my_set = {1, 2, 3, 4, 5}
+    Using the `set()` constructor:
+    my_set = set([1, 2, 3, 4, 5])
+    Both of these methods will create a set containing unique elements.
+Q47.Create a set and add "iNeuron" in your set.
+Ans.Certainly! Here's how we can create a set and add the string "iNeuron" to it in Python:
+    my_set = set()  # Create an empty set
+    my_set.add("iNeuron")  # Add "iNeuron" to the set
+    Now, `my_set` contains the element "iNeuron".
+Q48.Try to add multiple values using add() function.
+Ans.We can add multiple values to a set using the `add()` function by calling it multiple times, once for each value you want to add. Here's an example:
+    my_set = set()  # Create an empty set
+    my_set.add("iNeuron")  # Add "iNeuron" to the set
+    my_set.add(42)  # Add the integer 42 to the set
+    my_set.add(3.14)  # Add the float 3.14 to the set
+    In this example, we first create an empty set `my_set` and then use the `add()` function to add the string "iNeuron", 
+    the integer 42, and the float 3.14 to the set. The output will be a set containing these three values:{3.14, 42, 'iNeuron'}
+Q49.How is update() different from add()?
+Ans.Sure, here's a short answer with examples:
+    `add()`: Adds a single element to a set.
+     my_set = {1, 2, 3}
+     my_set.add(4)  # Adds 4 to the set
+     `update()`: Adds multiple elements from an iterable to a set.
+     my_set = {1, 2, 3}
+     my_set.update([3, 4, 5])  # Adds 4 and 5 to the set
+Q50.What is clear() in sets?
+Ans.The `clear()` method in Python sets is used to remove all elements from a set, leaving it empty. After calling `clear()`, 
+    the set will no longer contain any elements.
+    Here's how we can use the `clear()` method:
+    my_set = {1, 2, 3, 4, 5}
+    my_set.clear()  # Clears all elements from the set
+    After calling `clear()`, `my_set` will be an empty set `{}`.
+Q51.What is frozen set?
+Ans.A frozen set in Python is an immutable version of a set. Example:
+    my_frozen_set = frozenset([1, 2, 3, 4, 5])
+    Key points:
+    Frozen sets cannot be modified once created.
+    They are hashable and can be used as dictionary keys or elements in other sets.
+Q52.How is frozen set different from set?
+Ans.Here's a short answer with examples highlighting the main differences:
+    Set:
+    Mutable: we can add and remove elements.
+    Not hashable: Cannot be used as dictionary keys or elements in other sets.
+    my_set = {1, 2, 3}
+    my_set.add(4)  # Modifiable
+    Frozen Set:
+    Immutable: Cannot add or remove elements.
+    Hashable: Can be used as dictionary keys or elements in other sets.
+    my_frozen_set = frozenset([1, 2, 3])
+    my_frozen_set.add(4)  # Raises an error, not modifiable
+Q53.What is union() in sets? Explain via code.
+Ans.The `union()` method in sets combines two or more sets, removing duplicates to create a new set. Here's a short example:
+    set1 = {1, 2, 3}
+    set2 = {3, 4, 5}
+    result = set1.union(set2)  # Combines set1 and set2 into result
+    print(result)  # Output: {1, 2, 3, 4, 5}
+    In this example, the `union()` method combines `set1` and `set2` to create a new set `result` containing all unique elements from both sets.
+Q54.What is intersection() in sets? Explain via code.
+Ans.The `intersection()` method in sets finds and returns the common elements between two or more sets. Here's a short example:
+    set1 = {1, 2, 3, 4}
+    set2 = {3, 4, 5}
+    result = set1.intersection(set2)  # Finds common elements between set1 and set2
+    print(result)  # Output: {3, 4}
+    In this example, `result` contains the elements that are present in both `set1` and `set2`, which are 3 and 4.
+Q55.What is dictionary ibn Python?
+Ans.Dictionary in Python is a collection of keys values, used to store data values like a map, which, unlike other data types which hold only a single value as an element.
+Q56.How is dictionary different from all other data structures.
+Ans.Dictionary is having key and value pair where as all other data structures have only values in them.
+Q57.How can we delare a dictionary in Python?
+Ans.We can create dictionary using curly brackets {}.
+Q58.What will the output of the following?
+    var = {}
+    print(type(var))
+Ans.<class 'dict'>
+Q59.How can we add an element in a dictionary?
+Ans.Dict = {}
+    Dict[0] = "Hello"
+    Dict[1] = "Course: ["Data Science", "Big Data"]"
+Q60.Create a dictionary and access all the values in that dictionary.
+Ans.python
+    Dict = {"Name": "Vishal", "Experience": 3, "Organisation":"iNeuron"}
+    for i, j in Dict.items():
+    print(f"Key is {i} and value is {j}")
+Q61.Create a nested dictionary and access all the element in the inner dictionary.
+Ans.python
+    Dict = {"Name": {"f_name":"Vishal", "l_name":"Singh"}, "Experience": 3, "Organisation":"iNeuron"}
+    for i, j in Dict["Name"].items():
+    print(f"Key is {i} and value is {j}")
+Q62.What is the use of get() function?
+Ans.get() is also to access the elements in dictionary.
+    python
+    Dict = {"Name": "Vishal", "Experience": 3, "Organisation":"iNeuron"}
+    print(Dict.get("Name"))
+Q63.What is the use of items() function?
+Ans.items() method is used to return the list with all dictionary keys with values.
+    python
+    Dict = {"Name": "Vishal", "Experience": 3, "Organisation":"iNeuron"}
+    print(Dict.items())
+Q64.What is the use of pop() function?
+Ans.The pop() function in Python is used to remove and return an element from a data structure, such as a list or dictionary.
+    python
+    Dict = {"Name": "Vishal", "Experience": 3, "Organisation":"iNeuron"}
+    print(Dict.pop("Name"))
+Q65.What is the use of popitems() function?
+Ans.popitem() method removes the last inserted key-value pair from the dictionary and returns it as a tuple.
+    python
+    Dict = {"Name": "Vishal", "Experience": 3, "Organisation":"iNeuron"}
+    print(Dict.popitem())
+Q66.What is the use of keys() function?
+Ans.keys() method returns a view object that displays a list of all the keys in the dictionary.
+    python
+    Dict = {"Name": "Vishal", "Experience": 3, "Organisation":"iNeuron"}
+    print(Dict.keys())
+Q67.What is the use of values() function?
+Ans.values() is an inbuilt method in Python programming language that returns a view object. The view object contains the values of the dictionary, as a list.
+    python
+    Dict = {"Name": "Vishal", "Experience": 3, "Organisation":"iNeuron"}
+    print(Dict.values())
+Q68.What are loops in Python?
+Ans.Loops are used the iterate over a block of statement multiple times.
+Q69.How many type of loop are there in Python?
+Ans.There is for and while loop in Python.
+Q70.What is the difference between for and while loops?
+Ans.When we know the exact number of iterations, we can use for loop. When we want the to run till a certain condition is true we can use while loop.
+Q71.What is the use of continue statement?
+Ans.Continue Statement skips the execution of the program block from after the continue statement and forces the control to start the next iteration.
+Q72.What is the use of break statement?
+Ans.break statement in Python is used to bring the control out of the loop when some external condition is triggered. break statement is put inside the loop body
+Q73.What is the use of pass statement?
+Ans.The pass statement is a null statement. But the difference between pass and comment is that comment is ignored by the interpreter whereas pass is not ignored. 
+Q74.What is the use of range() function?
+Ans.range() function returns a sequence of numbers, in a given range. The most common use of it is to iterate sequence on a sequence of numbers
+Q75.How can you loop over a dictionary?
+Ans.python
+    statesAndCapitals = {
+	'Gujarat': 'Gandhinagar',
+	'Maharashtra': 'Mumbai',
+	'Rajasthan': 'Jaipur',
+	'Bihar': 'Patna'
+         }
+    for state in statesAndCapitals:
+	print(state)
+        Coding problems
+Q76.Write a Python program to find the factorial of a given number.
+Ans.python
+    def factorial(n):
+    if n < 0:
+    return 0
+    elif n == 0 or n == 1:
+    return 1
+    else:
+    fact = 1
+    while(n>1):
+      fact *= n
+      n -= 1
+    return fact
+    n=6
+    print(f"Factorial of {n} is {factorial(n)}")
+Q77.Write a Python program to calculate the simple interest. Formula to calculate simple interest is SI = (P*R*T)/100
+Ans.python
+    def SI(p,r,t):
+    si = (p*r*t)/100
+    print(f"Simple interest is {si}")
+    return si
+    SI(8, 8, 6)      
+Q78.Write a Python program to calculate the compound interest. Formula of compound interest is A = P(1+ R/100)^t.
+Ans.python
+    def CI(p, r, t):
+    amount = p*(1+r/100)**t
+    ci = amount - p
+    print(f"Compound intrest is {ci}")
+    return ci
+    CI(10000, 10.25, 5)
+Q79.Write a Python program to check if a number is prime or not.
+Ans.python
+    from math import sqrt
+    def is_prime(n):
+    prime_flag = 0
+    if(n > 1):
+    for i in range(2, int(sqrt(n)) + 1):
+      if (n % i == 0):
+        prime_flag = 1
+        break
+    if (prime_flag == 0):
+      print(f"{n} is a prime number.")
+    else:
+      print(f"{n} is not a prime number.")
+    else:
+    print(f"{n} is not a prime number.")
+    is_prime(134)
+Q80.Write a Python program to check Armstrong Number.
+Ans.python
+    def check_armstrong(n):
+    s = n
+    b = len(str(n))
+    sum1 = 0
+    while n != 0:
+      r = n % 10
+      sum1 = sum1+(r**b)
+      n = n//10
+    if s == sum1:
+      print(f"The given number {s} is armstrong number")
+    else:
+      print(f"The given number {s} is not armstrong number")
+    check_armstrong(153)
+Q81.Write a Python program to find the n-th Fibonacci Number.
+Ans.python
+    def Fibonacci(n):
+	if n<= 0:
+		print("Incorrect input")
+	elif n == 1:
+		return 0
+	elif n == 2:
+		return 1
+	else:
+		return Fibonacci(n-1)+Fibonacci(n-2)
+     print(Fibonacci(7))
+Q82.Write a Python program to interchange the first and last element in a list.
+Ans.python
+    def swap_list(newList):
+	size = len(newList)
+	temp = newList[0]
+	newList[0] = newList[size - 1]
+	newList[size - 1] = temp
+	return newList
+    newList = [15, 12, 35, 17, 9, 56, 29]
+    print(swap_list(newList))
+    python
+    def swap_list(newList):
+    newList[0], newList[-1] = newList[-1], newList[0]
+    return newList 
+    newList = [15, 12, 35, 17, 9, 56, 29]
+    print(swap_list(newList))
+Q83.Write a Python program to swap two elements in a list.
+Ans.python
+    def swapPositions(list, pos1, pos2):
+	list[pos1], list[pos2] = list[pos2], list[pos1]
+	return list
+    List = [15, 12, 35, 17, 9, 56, 29]
+    pos1, pos2 = 1, 3
+    print(f"Original list: {List}")
+    print(f"Swapped list: {swapPositions(List, pos1, pos2)}")
+Q84. Write a Python program to find N largest element from a list.
+Ans.python
+    def n_max_elements(list1, N):
+	final_list = []
+
+	for i in range(0, N):
+		max1 = 0
+		
+		for j in range(len(list1)):	
+			if list1[j] > max1:
+				max1 = list1[j];
+				
+		list1.remove(max1);
+		final_list.append(max1)
+		
+	print(final_list)
+
+     list1 = [2, 6, 41, 85, 0, 3, 7, 6, 10]
+     N = 3
+     n_max_elements(list1, N)
+Q85.Write a Python program to find cumulative sum of a list.
+
+Ans.python
+    def cumulative_sum(lists):
+	cu_list = []
+	length = len(lists)
+	cu_list = [sum(lists[0:x:1]) for x in range(0, length+1)]
+	return cu_list[1:]
+    lists = [10, 20, 30, 40, 50]
+    print(f"Cumulative sum of the list is {cumulative_sum(lists)}")
+Q86.Write a Python program to check if a string is palindrome or not.
+Ans86.python
+      def isPalindrome(s):
+      if s == s[::-1]:
+	  return f"{s} is palindrome"
+      return f"{s} is not palindrome"
+      s = "dad"
+      isPalindrome(s)
+Q87.Write a Python program to remove i'th element from a string.
+Ans.python
+   def remove_ith_element(i):
+   str1 = "Big Data Bootcamp"
+   str2 = ""
+   for n in range(len(str1)):
+    if n == i:
+      continue
+    else:
+      str2 = str2 + str1[n]
+    return str2
+   remove_ith_element(5)
+Q88.Write a Python program to check if a substring is present in a given string.
+Ans88.python
+      def check_substring(s2, s1):
+	if (s2.count(s1) > 0):
+		print(f'"{s1}" is a substring of "{s2}"')
+	else:
+		print(f'"{s1}" is not a substring of "{s2}"')
+
+
+      s2 = "Welcome to iNeuron Big Data Bootcamp"
+      s1 = "iNeuron"
+      check_substring(s2, s1)
+Q89.Write a Python program to find words which are greater than given length k.
+Ans.python
+    def string_greater_than_k(k, str):
+	
+	string = []
+
+	text = str.split(" ")
+
+	for x in text:
+
+		if len(x) > k:
+
+			string.append(x)
+
+	return string
+     k = 3
+     str ="Big Data Bootcamp"
+     print(string_greater_than_k(k, str))
+Q90.Write a Python program to extract unquire dictionary values.
+Ans.python
+    test_dict = {'iNeuron': [5, 6, 7, 8],
+			'is': [10, 11, 7, 5],
+			'best': [6, 12, 10, 8],
+			'for': [1, 2, 5],
+      'big data': [2, 7, 12, 9]
+      }
+
+     print("The original dictionary is : " + str(test_dict))
+
+     res = list(sorted({ele for val in test_dict.values() for ele in val}))
+
+     print("The unique values list is : " + str(res))
+Q91.Write a Python program to merge two dictionary.
+Ans.python
+    def Merge(dict1, dict2):
+	return(dict2.update(dict1))
+    dict1 = {'a': 10, 'b': 8}
+    dict2 = {'d': 6, 'c': 4}
+    print(Merge(dict1, dict2))
+    print(dict2)
+Q92.Write a Python program to convert a list of tuples into dictionary.
+    python
+    Input : [('Sachin', 10), ('MSD', 7), ('Kohli', 18), ('Rohit', 45)]
+    Output : {'Sachin': 10, 'MSD': 7, 'Kohli': 18, 'Rohit': 45}
+Ans.python
+    print (dict([('Sachin', 10), ('MSD', 7), ('Kohli', 18), ('Rohit', 45)]))
+Q93.Write a Python program to create a list of tuples from given list having number and its cube in each tuple.
+    python
+    Input: list = [9, 5, 6]
+    Output: [(9, 729), (5, 125), (6, 216)]
+Ans.python
+    list1 = [9, 5, 6]
+    res = [(val, pow(val, 3)) for val in list1]
+    print(res)
+Q94.Write a Python program to get all combinations of 2 tuples.
+    python
+    Input : test_tuple1 = (7, 2), test_tuple2 = (7, 8)
+    Output : [(7, 7), (7, 8), (2, 7), (2, 8), (7, 7), (7, 2), (8, 7), (8, 2)]
+Ans.python
+    test_tuple1 = (7, 2)
+    test_tuple2 = (7, 8)
+    res = [(a, b) for a in test_tuple1 for b in test_tuple2]
+    res = res + [(a, b) for a in test_tuple2 for b in test_tuple1]
+    print("The filtered tuple : ", str(res))
+Q95.Write a Python program to sort a list of tuples by second item.
+    python
+    Input : [('452', 10), ('256', 5), ('100', 20), ('135', 15)]
+    Output : [('256', 5), ('452', 10), ('135', 15), ('100', 20)]
+Ans.python
+    def Sort_Tuple(tup):
+    lst = len(tup)
+    for i in range(0, lst):
+          for j in range(0, lst-i-1):
+            if (tup[j][1] > tup[j + 1][1]):
+                temp = tup[j]
+                tup[j]= tup[j + 1]
+                tup[j + 1]= temp
+    return tup
+    tup =[('452', 10), ('256', 5), ('100', 20), ('135', 15)]
+       print(Sort_Tuple(tup))
+Q96.Write a python program to print below pattern.    
+    * 
+    * * 
+    * * * 
+    * * * * 
+    * * * * * 
+Ans.python
+    def pypart(n):
+	
+	for i in range(0, n):
+	
+		for j in range(0, i+1):
+		
+			print("* ",end="")
+	
+		print("\r")
+
+      n = 5
+      pypart(n)
+Q97.Write a python program to print below pattern.
+        *
+       **
+      ***
+     ****
+    *****
+Ans.python
+    def inverse_pattern():
+    n=5;i=0
+    while(i<=n):
+    print(" " * (n - i) +"*" * i)
+    i+=1
+    inverse_pattern()
+Q98.Write a python program to print below pattern.
+        * 
+       * * 
+      * * * 
+     * * * * 
+    * * * * * 
+Ans.python
+    def triangle(n):
+	
+	k = n - 1
+
+	for i in range(0, n):
+
+		for j in range(0, k):
+			print(end=" ")
+	
+		k = k - 1
+	
+		for j in range(0, i+1):
+
+			print("* ", end="")
+	
+		print("\r")
+
+      n = 5
+      triangle(n)
+Q99.Write a python program to print below pattern.
+    1 
+    1 2 
+    1 2 3 
+    1 2 3 4 
+    1 2 3 4 5
+Ans.python
+    def numpat(n):
+
+	num = 1
+
+	for i in range(0, n):
+
+		num = 1
+
+		for j in range(0, i+1):
+
+			print(num, end=" ")
+
+			num = num + 1
+
+		print("\r")
+
+      n = 5
+      numpat(n)
+Q100.Write a python program to print below pattern.
+     A 
+     B B 
+     C C C 
+     D D D D 
+     E E E E E 
+Ans.python
+     def alphapat(n):
+
+	num = 65
+
+	for i in range(0, n):
+	
+		for j in range(0, i+1):
+
+			ch = chr(num)
+		
+			print(ch, end=" ")
+	
+		num = num + 1
+	
+		print("\r")
+
+      n = 5
+      alphapat(n)
