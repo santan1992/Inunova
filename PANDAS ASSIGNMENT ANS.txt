@@ -1,0 +1,509 @@
+# PandasAssignment
+
+Q1. How do you load a CSV file into a Pandas DataFrame?
+Ans.To load a CSV file into a Pandas DataFrame, we can use the `pd.read_csv()` function.
+    Here's a short example:
+    import pandas as pd
+    Replace 'your_file.csv' with the path to your CSV file
+    df = pd.read_csv('your_file.csv')
+    'df' is a DataFrame containing the data from the CSV file.
+    Make sure to replace `'your_file.csv'` with the actual path to your CSV file.
+    The `read_csv()` function automatically detects the delimiter and other settings,
+    but we can customize its behavior by providing additional arguments,
+    such as specifying the delimiter using the `delimiter` parameter or handling missing values with the `na_values` parameter.
+
+Q2. How do you check the data type of a column in a Pandas DataFrame?
+Ans.We can check the data type of a column in a Pandas DataFrame using the .
+    dtypes attribute or the .dtype method. Here's a short example:
+    import pandas as pd
+    data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'Salary': [50000.0, 60000.0, 75000.0]}
+    df = pd.DataFrame(data)
+    # Check the data types of columns
+    name_dtype = df['Name'].dtype
+    age_dtype = df['Age'].dtype
+    salary_dtype = df['Salary'].dtype
+
+    print(f'Data Type of Name column: {name_dtype}')
+    print(f'Data Type of Age column: {age_dtype}')
+    print(f'Data Type of Salary column: {salary_dtype}')
+
+Q3. How do you select rows from a Pandas DataFrame based on a condition?
+Ans.You can select rows from a Pandas DataFrame based on a condition using boolean indexing. Here's how you can do it:
+    1. Create a DataFrame.
+    2. Define a condition that evaluates to a boolean Series of the same length as the DataFrame.
+    3. Use this boolean Series to index/select the rows that meet the condition.
+    Here's an example:
+    import pandas as pd
+    # Create a sample DataFrame
+    data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 35, 28],
+        'Salary': [50000.0, 60000.0, 75000.0, 55000.0]}
+    df = pd.DataFrame(data)
+    # Define a condition to select rows where Age is greater than 30
+    condition = df['Age'] > 30
+
+    # Use the condition to select rows
+    selected_rows = df[condition]
+    print(selected_rows)
+    In this example, the `condition` variable filters the rows where the 'Age' column is greater than 30.
+    The resulting `selected_rows` DataFrame will only contain the rows that satisfy this condition.
+    You can use various logical operators (`&` for "and," `|` for "or," and `~` for "not") to combine multiple conditions if needed.
+
+Q4. How do you rename columns in a Pandas DataFrame?
+Ans.We can rename columns in a Pandas DataFrame using the .
+    rename() method or by directly assigning new column names to the columns attribute.
+    Here's a short example of both methods:
+    Method : Using .rename() method
+    import pandas as pd
+    # Create a sample DataFrame
+    data = {'OldName1': [1, 2, 3],
+        'OldName2': ['A', 'B', 'C']}
+    df = pd.DataFrame(data)
+    # Rename columns using .rename() method
+    df = df.rename(columns={'OldName1': 'NewName1', 'OldName2': 'NewName2'})
+    print(df)
+
+Q5. How do you drop columns in a Pandas DataFrame?
+Ans.We can drop columns from a Pandas DataFrame using the .drop() method. Here's a short example:
+    import pandas as pd
+    # Create a sample DataFrame
+    data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'Salary': [50000.0, 60000.0, 75000.0]}
+    df = pd.DataFrame(data)
+    # Drop the 'Salary' column
+    df = df.drop(columns='Salary')
+    print(df)
+
+Q6. How do you find the unique values in a column of a Pandas DataFrame?
+Ans.We can find the unique values in a column of a Pandas DataFrame using the `.
+    unique()` method. Here's a short example:
+    import pandas as pd
+    # Create a sample DataFrame
+    data = {'Category': ['A', 'B', 'A', 'C', 'B', 'A']}
+    df = pd.DataFrame(data)
+    # Find unique values in the 'Category' column
+    unique_values = df['Category'].unique()
+    print(unique_values)
+    In this example, the `.unique()` method is used on the 'Category' column,
+    and it returns an array containing the unique values in that column.
+    The output will display the unique values from the 'Category' column, which are ['A', 'B', 'C'] in this case.
+
+Q7. How do you find the number of missing values in each column of a Pandas DataFrame?
+Ans.You can find the number of missing values in each column of a Pandas DataFrame using the `.
+    isna()` method to create a boolean DataFrame of missing value indicators and then using the `.
+    sum()` method. Here's a short example:
+    import pandas as pd
+    import numpy as np
+    # Create a sample DataFrame with missing values
+    data = {'A': [1, 2, np.nan, 4],
+        'B': [5, np.nan, np.nan, 8],
+        'C': [9, 10, 11, 12]}
+    df = pd.DataFrame(data)
+    # Count missing values in each column
+    missing_values = df.isna().sum()
+    print(missing_values)
+    In this example, `df.isna()` creates a DataFrame of the same shape as `df`,
+    where each cell contains `True` if the corresponding cell in `df` is a missing value (NaN),
+    and `False` otherwise. Then, `.sum()` is used to calculate the sum of `True` values along each column, giving you the count of missing values in each column.
+    The output will show the number of missing values in each column of the DataFrame.
+
+Q8. How do you fill missing values in a Pandas DataFrame with a specific value?
+Ans.You can fill missing values in a Pandas DataFrame with a specific value using the `.
+    fillna()` method. Here's a short example:
+    import pandas as pd
+    import numpy as np
+    # Create a sample DataFrame with missing values
+    data = {'A': [1, 2, np.nan, 4],
+        'B': [5, np.nan, np.nan, 8],
+        'C': [9, 10, 11, 12]}
+    df = pd.DataFrame(data)
+    # Fill missing values with a specific value, e.g., 0
+    df_filled = df.fillna(0)
+    print(df_filled)
+    In this example, we use `.fillna(0)` to fill missing values in the DataFrame `df` with the value `0`.
+    You can replace `0` with any other value that you want to use as a fill value.
+    The resulting `df_filled` DataFrame will have missing values replaced with the specified value.
+
+Q9. How do you concatenate two Pandas DataFrames?
+Ans.You can concatenate two Pandas DataFrames vertically (i.e., stacking them on top of each other) or
+    horizontally (i.e., joining them side by side) using the `pd.concat()` function.
+    Here's a short example for both cases:
+    Vertical Concatenation (Stacking):
+    import pandas as pd
+    # Create two sample DataFrames
+    data1 = {'A': [1, 2],
+         'B': [3, 4]}
+    df1 = pd.DataFrame(data1)
+
+    data2 = {'A': [5, 6],
+         'B': [7, 8]}
+    df2 = pd.DataFrame(data2)
+    # Concatenate vertically (stacking)
+    concatenated_df = pd.concat([df1, df2], axis=0)
+    print(concatenated_df)
+    Horizontal Concatenation (Joining):
+    import pandas as pd
+    # Create two sample DataFrames
+    data1 = {'A': [1, 2],
+         'B': [3, 4]}
+    df1 = pd.DataFrame(data1)
+
+    data2 = {'C': [5, 6],
+         'D': [7, 8]}
+    df2 = pd.DataFrame(data2)
+    # Concatenate horizontally (joining)
+    concatenated_df = pd.concat([df1, df2], axis=1)
+    print(concatenated_df)
+    In both examples, we use the `pd.concat()` function to concatenate the DataFrames.
+    For vertical concatenation, we set `axis=0`, and for horizontal concatenation, we set `axis=1`.
+    The resulting `concatenated_df` will contain the combined data from the input DataFrames according to the specified concatenation method.
+
+Q10. How do you merge two Pandas DataFrames on a specific column?
+Ans. import pandas as pd
+     # Create two sample DataFrames
+     data1 = {'EmployeeID': [101, 102, 103],
+         'Name': ['Alice', 'Bob', 'Charlie']}
+     df1 = pd.DataFrame(data1)
+
+     data2 = {'EmployeeID': [102, 103, 104],
+         'Department': ['HR', 'Finance', 'IT']}
+     df2 = pd.DataFrame(data2)
+
+     # Merge DataFrames on the 'EmployeeID' column
+     merged_df = pd.merge(df1, df2, on='EmployeeID')
+
+     print(merged_df)
+
+Q11. How do you group data in a Pandas DataFrame by a specific column and apply an aggregation function?
+Ans. import pandas as pd
+     # Create a sample DataFrame
+     data = {'Category': ['A', 'B', 'A', 'B', 'A'],
+        'Value': [10, 20, 15, 25, 30]}
+
+     df = pd.DataFrame(data)
+
+     # Group by the 'Category' column and calculate the sum of 'Value' for each group
+     grouped = df.groupby('Category')['Value'].sum()
+
+     print(grouped)
+     In this example, we first create a DataFrame df with two columns, 'Category' and 'Value'.
+     We then use .groupby('Category') to group the data by the 'Category' column. Finally, we apply the .
+     sum() aggregation function to calculate the sum of 'Value' for each group.
+     The output will display the sum of 'Value' for each unique category in the 'Category' column.
+
+Q12. How do you pivot a Pandas DataFrame?
+Ans. import pandas as pd
+     # Create a sample DataFrame
+     data = {'Date': ['2023-09-01', '2023-09-02', '2023-09-01', '2023-09-02'],
+        'Category': ['A', 'A', 'B', 'B'],
+        'Value': [10, 15, 20, 25]}
+     df = pd.DataFrame(data)
+
+     # Pivot the DataFrame
+     pivot_df = df.pivot(index='Date', columns='Category', values='Value')
+     print(pivot_df)
+     In this example, we have a DataFrame df with three columns: 'Date', 'Category', and 'Value'.
+     We use the .pivot() method to pivot the DataFrame, specifying 'Date' as the index, 'Category' as the columns, and 'Value' as the values.
+     This rearranges the data so that 'Category' values become columns, and 'Value' values are placed in the corresponding cells.
+     The resulting pivot_df DataFrame will show a pivoted view of the data with 'Date' as the index, 'A' and 'B' as columns, and 'Value' values in the respective cells.
+
+Q13. How do you change the data type of a column in a Pandas DataFrame?
+Ans. import pandas as pd
+     # Create a sample DataFrame
+     data = {'Column1': ['1', '2', '3'],
+        'Column2': ['4.5', '5.1', '6.2']}
+     df = pd.DataFrame(data)
+     # Change the data type of 'Column1' to integer and 'Column2' to float
+     df['Column1'] = df['Column1'].astype(int)
+     df['Column2'] = df['Column2'].astype(float)
+
+     print(df.dtypes)
+     In this example, we first create a DataFrame df with two columns, 'Column1' and 'Column2'. 
+     Then, we use the .astype() method to change the data type of 'Column1' to integer (int) and 'Column2' to float (float). 
+     Finally, we print the data types of the columns to confirm the changes.
+
+Q14. How do you sort a Pandas DataFrame by a specific column?
+Ans. You can sort a Pandas DataFrame by a specific column using the `.sort_values()` method.
+     Here are some short examples:
+     Sorting by a Single Column:
+     import pandas as pd
+
+     # Create a sample DataFrame
+     data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35]}
+
+     df = pd.DataFrame(data)
+
+     # Sort the DataFrame by the 'Age' column in ascending order
+     sorted_df = df.sort_values(by='Age')
+
+     print(sorted_df)
+     Sorting by a Single Column in Descending Order:
+     import pandas as pd
+     # Create a sample DataFrame
+     data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35]}
+
+     df = pd.DataFrame(data)
+     # Sort the DataFrame by the 'Age' column in descending order
+     sorted_df = df.sort_values(by='Age', ascending=False)
+     print(sorted_df)
+     Sorting by Multiple Columns:
+     import pandas as pd
+     # Create a sample DataFrame
+     data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 35, 28],
+        'Salary': [50000.0, 60000.0, 75000.0, 55000.0]}
+
+     df = pd.DataFrame(data)
+
+     # Sort the DataFrame by 'Age' in ascending order and then by 'Salary' in descending order
+     sorted_df = df.sort_values(by=['Age', 'Salary'], ascending=[True, False])
+
+     print(sorted_df)
+     In these examples, we use the `.sort_values()` method and specify the `by` parameter to indicate the column by which we want to sort.
+     The `ascending` parameter is used to specify the sorting order, where `True` means ascending (default) and `False` means descending.
+     You can sort by a single column or multiple columns by providing a list of column names to the `by` parameter.
+
+Q15. How do you create a copy of a Pandas DataFrame?
+Ans. To create a copy of a Pandas DataFrame, you can use the `.copy()` method or simply assign the DataFrame to a new variable. Here are short examples of both methods:
+     Using `.copy()` method:
+     import pandas as pd
+
+     # Create a sample DataFrame
+     data = {'A': [1, 2, 3],
+        'B': [4, 5, 6]}
+
+     df = pd.DataFrame(data)
+
+     # Create a copy of the DataFrame using the .copy() method
+     df_copy = df.copy()
+
+     # Modify the original DataFrame
+     df['A'][0] = 100
+
+     # Print both DataFrames to see the difference
+     print("Original DataFrame:")
+     print(df)
+
+     print("\nCopied DataFrame:")
+     print(df_copy)
+     Using assignment:
+
+    import pandas as pd
+
+    # Create a sample DataFrame
+    data = {'A': [1, 2, 3],
+        'B': [4, 5, 6]}
+
+    df = pd.DataFrame(data)
+
+    # Create a copy of the DataFrame using assignment
+    df_copy = df
+
+    # Modify the original DataFrame
+    df['A'][0] = 100
+
+    # Print both DataFrames to see the difference
+    print("Original DataFrame:")
+    print(df)
+
+    print("\nCopied DataFrame:")
+    print(df_copy)
+    In the first example, we create a copy of the DataFrame using the `.
+    copy()` method. When we modify the original DataFrame, the copied DataFrame remains unchanged.
+    In the second example, we create a copy by simply assigning the DataFrame to a new variable.
+    However, this method creates a reference to the original DataFrame, so modifying the original DataFrame also affects the copied DataFrame.
+    This behavior is different from using `.copy()`, where changes to the original DataFrame do not affect the copied DataFrame.
+    Using `.copy()` is recommended when you want to create a completely independent copy of a DataFrame.
+
+Q16.How do you filter rows of a Pandas DataFrame by multiple conditions?
+Ans.Filtering Rows with Multiple Conditions (AND):
+    import pandas as pd
+
+    # Create a sample DataFrame
+    data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 35, 28],
+        'Salary': [50000.0, 60000.0, 75000.0, 55000.0]}
+
+    df = pd.DataFrame(data)
+
+    # Filter rows where Age is greater than 25 AND Salary is greater than 55000.0
+    filtered_df = df[(df['Age'] > 25) & (df['Salary'] > 55000.0)]
+
+    print(filtered_df)
+    
+    Filtering Rows with Multiple Conditions (OR):
+    import pandas as pd
+
+    # Create a sample DataFrame
+    data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 35, 28],
+        'Salary': [50000.0, 60000.0, 75000.0, 55000.0]}
+
+    df = pd.DataFrame(data)
+
+    # Filter rows where Age is less than 27 OR Salary is greater than 60000.0
+    filtered_df = df[(df['Age'] < 27) | (df['Salary'] > 60000.0)]
+
+    print(filtered_df)
+
+    Filtering Rows with Multiple Conditions (NOT):
+    import pandas as pd
+
+    # Create a sample DataFrame
+    data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 35, 28],
+        'Salary': [50000.0, 60000.0, 75000.0, 55000.0]}
+
+    df = pd.DataFrame(data)
+
+    # Filter rows where Age is NOT equal to 30
+    filtered_df = df[~(df['Age'] == 30)]
+
+    print(filtered_df)
+
+Q17. How do you calculate the mean of a column in a Pandas DataFrame?
+Ans. import pandas as pd
+
+     # Create a sample DataFrame
+     data = {'Age': [25, 30, 35, 28, 22]}
+
+     df = pd.DataFrame(data)
+
+     # Calculate the mean of the 'Age' column
+     mean_age = df['Age'].mean()
+
+     print(f"Mean Age: {mean_age}")
+
+Q18. How do you calculate the standard deviation of a column in a Pandas DataFrame?
+Ans. import pandas as pd
+
+     # Create a sample DataFrame
+     data = {'Age': [25, 30, 35, 28, 22]}
+
+     df = pd.DataFrame(data)
+
+     # Calculate the standard deviation of the 'Age' column
+     std_deviation = df['Age'].std()
+
+     print(f"Standard Deviation of Age: {std_deviation}")
+
+Q19. How do you calculate the correlation between two columns in a Pandas DataFrame?
+Ans. import pandas as pd
+
+     # Create a sample DataFrame
+     data = {'Age': [25, 30, 35, 28, 22],
+        'Salary': [50000, 60000, 75000, 55000, 45000]}
+
+     df = pd.DataFrame(data)
+
+     # Calculate the correlation between 'Age' and 'Salary' columns
+     correlation = df['Age'].corr(df['Salary'])
+
+     print(f"Correlation between Age and Salary: {correlation}")
+
+Q20. How do you select specific columns in a DataFrame using their labels?
+Ans. import pandas as pd
+
+     # Create a sample DataFrame
+     data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'Salary': [50000.0, 60000.0, 75000.0]}
+
+     df = pd.DataFrame(data)
+
+     # Select specific columns by their labels
+     selected_columns = df[['Name', 'Salary']]
+
+     print(selected_columns)
+
+Q21. How do you select specific rows in a DataFrame using their indexes?
+Ans. import pandas as pd
+
+     # Create a sample DataFrame with custom row indexes
+     data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'Salary': [50000.0, 60000.0, 75000.0]}
+
+     df = pd.DataFrame(data, index=['row1', 'row2', 'row3'])
+
+     # Select specific rows by their indexes
+     selected_rows = df.loc[['row1', 'row3']]
+
+     print(selected_rows)
+
+Q22. How do you sort a DataFrame by a specific column?
+Ans. import pandas as pd
+
+     # Create a sample DataFrame
+     data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'Salary': [50000.0, 60000.0, 75000.0]}
+
+     df = pd.DataFrame(data)
+
+     # Sort the DataFrame by the 'Age' column in ascending order
+     sorted_df = df.sort_values(by='Age')
+
+     print(sorted_df)
+
+Q23. How do you create a new column in a DataFrame based on the values of another column?
+Ans. import pandas as pd
+
+     # Create a sample DataFrame
+     data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35]}
+
+     df = pd.DataFrame(data)
+
+     # Create a new column 'Age_Group' based on the 'Age' column
+     df['Age_Group'] = pd.cut(df['Age'], bins=[0, 18, 30, 60], labels=['Young', 'Adult', 'Senior'])
+
+     print(df)
+
+Q24. How do you remove duplicates from a DataFrame?
+Ans. import pandas as pd
+
+     # Create a sample DataFrame with duplicates
+     data = {'Name': ['Alice', 'Bob', 'Alice', 'Charlie', 'Bob'],
+        'Age': [25, 30, 25, 35, 30]}
+
+     df = pd.DataFrame(data)
+
+     # Remove duplicates based on all columns
+     df_no_duplicates = df.drop_duplicates()
+
+     print(df_no_duplicates)
+
+Q25. What is the difference between .loc and .iloc in Pandas?
+Ans. In Pandas, `.loc` and `.iloc` are used for DataFrame indexing and selection, but they differ in how they reference rows and columns:
+     1. `.loc`: It is label-based indexing, meaning you use column and row labels to access data. 
+     You can use specific labels to select rows and columns.
+     2. `.iloc`: It is integer-based indexing, meaning you use integer positions to access data.
+     You can use integer indices to select rows and columns.
+
+     Here's an example illustrating the difference:
+
+     import pandas as pd
+
+     # Create a sample DataFrame
+     data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35]}
+
+     df = pd.DataFrame(data, index=['A', 'B', 'C'])
+
+     # Using .loc to select by labels
+     selected_loc = df.loc['A', 'Age']  # Select the cell at row 'A' and column 'Age'
+
+     # Using .iloc to select by integer positions
+     selected_iloc = df.iloc[0, 1]  # Select the cell at row 0 (position 'A') and column 1 (position 'Age')
+
+     print(f"Using .loc: {selected_loc}")
+     print(f"Using .iloc: {selected_iloc}")
+
+     In this example, `.loc['A', 'Age']` selects the value '25' by specifying row and column labels, whereas `.
+     iloc[0, 1]` selects the same value using integer positions.
